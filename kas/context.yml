@@ -14,9 +14,5 @@ machine: qemuarm64
 local_conf_header:
   layers: |
     BBLAYERS ?= ""
-    BBLAYERS += " \
-      ${TOPDIR}/poky/meta \
-      ${TOPDIR}/poky/meta-poky \
-      ${TOPDIR}/poky/meta-yocto-bsp \
-      ${TOPDIR}/meta-custom \
-    "
+    BBLAYERS += "${TOPDIR}/poky/meta ${TOPDIR}/poky/meta-poky ${TOPDIR}/poky/meta-yocto-bsp ${TOPDIR}/meta-custom"
+
