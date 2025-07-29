@@ -1,0 +1,33 @@
+on:
+  workflow_call:
+    inputs:
+      kas-machine:
+        required: true
+        type: string
+      kas-configuration:
+        required: true
+        type: string
+      build-type:
+        type: string
+      build-sdk:
+        type: boolean
+      build-dot-graph:
+        type: boolean
+      upload-image:
+        type: boolean
+      upload-sstate-cache:
+        type: boolean
+      runner-labels:
+        type: string
+
+jobs:
+  yocto-build:
+    runs-on: ${{ fromJson(inputs.runner-labels) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup and Build with kas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install kas
+          kas build kas/context.yml

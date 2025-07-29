@@ -1,0 +1,21 @@
+name: Current Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  current-build:
+    strategy:
+      matrix:
+        build_type: [prod, vnv, dev]
+    uses: ./.github/workflows/target-build.yml
+    with:
+      build-type: ${{ matrix.build_type }}
+      kas-configuration: ""
+      build-sdk: false
+      build-dot-graph: false
+      upload-image: false
+      upload-sstate-cache: false
+      runner-labels: '["ubuntu-latest"]'
+    secrets: inherit

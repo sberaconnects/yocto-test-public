@@ -1,0 +1,42 @@
+on:
+  workflow_call:
+    inputs:
+      build-type:
+        required: true
+        type: string
+      kas-configuration:
+        required: true
+        type: string
+      build-sdk:
+        type: boolean
+      build-dot-graph:
+        type: boolean
+      upload-image:
+        type: boolean
+      upload-sstate-cache:
+        type: boolean
+      runner-labels:
+        type: string
+
+jobs:
+  target-build:
+    strategy:
+      matrix:
+        include:
+          - baseconfig: qemuarm64
+            flavor: general-purpose
+          - baseconfig: qemux86-64
+            flavor: general-purpose
+
+    uses: ./.github/workflows/build.yml
+    with:
+      runner-labels: ${{ inputs.runner-labels }}
+      kas-machine: ${{ matrix.baseconfig }}
+      kas-configuration: "${{ matrix.baseconfig }}.yml:kas/build-types/${{ matrix.baseconfig }}-${{ matrix.flavor }}-${{ inputs.build-type }}.yml:${{ inputs.kas-configuration }}"
+      build-sdk: ${{ inputs.build-sdk }}
+      build-dot-graph: ${{ inputs.build-dot-graph }}
+      upload-sstate-cache: ${{ inputs.upload-sstate-cache }}
+      upload-image: ${{ inputs.upload-image }}
+      machine: ${{ matrix.baseconfig }}
+      build-type: ${{ inputs.build-type }}
+    secrets: inherit
