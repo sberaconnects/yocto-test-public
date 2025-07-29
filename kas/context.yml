@@ -20,13 +20,3 @@ local_conf_header:
       ${TOPDIR}/poky/meta-yocto-bsp \
       ${TOPDIR}/meta-custom \
     "
-
-layers:
-  meta:
-    path: poky/meta
-  meta-poky:
-    path: poky/meta-poky
-  meta-yocto-bsp:
-    path: poky/meta-yocto-bsp
-  meta-custom:
-    path: meta-custom
