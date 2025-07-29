@@ -27,6 +27,10 @@ jobs:
   yocto-build:
     runs-on: ${{ fromJson(inputs.runner-labels) }}
     steps:
+      - name: Clean old build config
+        run: |
+          rm -rf build/conf build/tmp
+
       - uses: actions/checkout@v4
       - name: Setup and Build with kas
         run: |

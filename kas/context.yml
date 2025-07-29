@@ -12,7 +12,6 @@ target: my-dev-image
 machine: qemuarm64
 
 local_conf_header:
-  layers: |
+  bblayers_conf: |
     BBLAYERS ?= ""
     BBLAYERS += "${TOPDIR}/poky/meta ${TOPDIR}/poky/meta-poky ${TOPDIR}/poky/meta-yocto-bsp ${TOPDIR}/meta-custom"
-
