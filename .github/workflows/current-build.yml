@@ -18,4 +18,6 @@ jobs:
       upload-image: false
       upload-sstate-cache: false
       runner-labels: '["ubuntu-latest"]'
+      machine: ${{ matrix.baseconfig }}
+
     secrets: inherit

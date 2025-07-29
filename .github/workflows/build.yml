@@ -19,6 +19,9 @@ on:
         type: boolean
       runner-labels:
         type: string
+      machine: 
+        required: false
+        type: string  
 
 jobs:
   yocto-build:
