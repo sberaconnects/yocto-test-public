@@ -19,7 +19,7 @@ repos:
   meta-custom:
     path: ../meta-custom
 
-build_system: bitbake
+build_system: oe
 target: base-image
 distro: custom-dev
 machine: qemuarm64
