@@ -1,0 +1,8 @@
+header:
+  version: 17
+
+distro: custom-dev
+local_conf_header:
+  dev-config: |
+    IMAGE_FEATURES += "tools-debug ssh-server"
+    EXTRA_IMAGE_FEATURES += "debug-tweaks empty-root-password"

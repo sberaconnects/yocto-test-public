@@ -1,0 +1,7 @@
+header:
+  version: 17
+
+distro: custom-prod
+local_conf_header:
+  prod-config: |
+    IMAGE_FEATURES += "read-only-rootfs"

@@ -1,0 +1,9 @@
+header:
+  version: 17
+
+machine: qemuarm64
+distro: custom-dev
+target: base-image
+local_conf_header:
+  test-config: |
+    ENABLE_DEBUG_TOOLS = "1"

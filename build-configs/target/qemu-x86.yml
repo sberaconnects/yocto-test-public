@@ -1,0 +1,9 @@
+header:
+  version: 17
+
+machine: qemux86
+distro: custom-prod
+target: base-image
+local_conf_header:
+  prod-config: |
+    ENABLE_SECURITY_FEATURES = "1"

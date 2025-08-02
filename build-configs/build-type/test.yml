@@ -1,0 +1,8 @@
+header:
+  version: 17
+
+distro: custom-test
+local_conf_header:
+  test-config: |
+    IMAGE_FEATURES += "ssh-server"
+    EXTRA_IMAGE_FEATURES += "debug-tweaks"

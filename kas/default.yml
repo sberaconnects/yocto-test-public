@@ -1,0 +1,25 @@
+header:
+  version: 17
+
+repos:
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    refspec: dunfell
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    refspec: dunfell
+    layers:
+      meta-oe:
+      meta-networking:
+      meta-python:
+  meta-custom:
+    path: ../meta-custom
+
+build_system: bitbake
+target: base-image
+distro: custom-dev
+machine: qemuarm64
